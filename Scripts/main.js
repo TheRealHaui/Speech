@@ -203,7 +203,6 @@ client.on( "ready", function( readyEvent ) {
     client.on( "copy", function (event) {
 
         if ( getSpeechResultAsString() == "" ){
-            alert(1);
             return;
         }
 
