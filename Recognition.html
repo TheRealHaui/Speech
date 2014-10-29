@@ -184,10 +184,7 @@
 
 
 <!-- Haui -->
-<!-- <script src="/intl/en/chrome/assets/common/js/chrome.min.js"> -->
-
-
-
+<!-- <script src="/intl/en/chrome/assets/common/js/chrome.min.js">
 
 </script>
 
@@ -199,8 +196,6 @@
 
     var chrmscroll = new chrm.ui.SmoothScroll('scroll');
     chrmscroll.init();
-
-
 
     window.___gcfg = { lang: 'en' };
     (function() {
@@ -221,6 +216,8 @@
 
     doubleTracker.trackClass('doubletrack', true);
 </script>
+-->
+
 
 <script>
 var langs =
@@ -228,16 +225,24 @@ var langs =
             ['Deutsch',         ['de-DE']],
             ['English',  ['en-US']]];
 
+/**
 for (var i = 0; i < langs.length; i++) {
     select_language.options[i] = new Option(langs[i][0], i);
 }
+ **/
+
+select_language.options[0] = new Option('Deutsch', 0);
+select_language.options[1] = new Option('English', 1);
+
 select_language.selectedIndex = 1;
 updateCountry();
 
 //Haui
-select_dialect.selectedIndex = 6;
+//select_dialect.selectedIndex = 6;
 showInfo('info_start');
 
+<!-- Haui -->
+<!--
 function updateCountry() {
     for (var i = select_dialect.options.length - 1; i >= 0; i--) {
         select_dialect.remove(i);
@@ -248,6 +253,7 @@ function updateCountry() {
     }
     select_dialect.style.visibility = list[1].length == 1 ? 'hidden' : 'visible';
 }
+-->
 
 var create_email = false;
 var final_transcript = '';
