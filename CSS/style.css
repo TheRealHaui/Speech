@@ -2,10 +2,7 @@
 #info {
     font-size: 20px;
 }
-#div_start {
 
-    margin-top: 20px;
-}
 #headline {
     text-decoration: none
 }
@@ -41,10 +38,13 @@
     position: relative;
     top: -50px;
 }
+#div_start {
 
-#copy {
     margin-top: 20px;
+}
+#copy {
 
+    display: inline;
 }
 
 #copy > div {
