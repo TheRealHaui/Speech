@@ -11,6 +11,7 @@
             e.className = e.className.replace(/\bno-js\b/,'js');
         })(document.documentElement, window.navigator.userAgent)
     </script>
+
     <meta charset="utf-8">
     <meta content="initial-scale=1, minimum-scale=1, width=device-width" name="viewport">
 
@@ -89,6 +90,7 @@
 
 <body class="" id="grid">
 
+<br>
 
 <div class="browser-landing" id="main">
 
@@ -97,126 +99,82 @@
         <div class="marquee-copy">
 
             <h1>
-                <a class="c1" href="http://dvcs.w3.org/hg/speech-api/raw-file/tip/speechapi.html">Web
-                    Speech API</a> Demonstration
+                Web Speech API Demonstration referring <a class="c1" href="http://dvcs.w3.org/hg/speech-api/raw-file/tip/speechapi.html"> Haui </a>
             </h1>
 
         </div>
 
     </div>
 
+    <br>
+
     <div class="compact marquee">
         <div id="info">
 
             <p id="info_start"> Click on the microphone and start speaking. </p>
 
-            <p id="info_speak_now" style="display:none">
-                Speak now.
-            </p>
+            <p id="info_speak_now" style="display:none"> Speak now. </p>
 
             <!-- Haui -->
-            <p id="info_no_speech" style="display:none">
-                No speech was detected. You may need to adjust your <a href=
-                                                                               "//support.google.com/chrome/bin/answer.py?hl=en&amp;answer=1407892">microphone
-                settings</a>.
-            </p>
+            <p id="info_no_speech" style="display:none"> No speech was detected. You may need to adjust your <a href= "//support.google.com/chrome/bin/answer.py?hl=en&amp;answer=1407892">microphone settings</a>. </p>
 
-            <p id="info_no_microphone" style="display:none">
-                No microphonefound. Ensure that a microphone is installed and configured correctly.
-            </p>
+            <p id="info_no_microphone" style="display:none"> No microphonefound. Ensure that a microphone is installed and configured correctly. </p>
 
-            <p id="info_allow" style="display:none">
-                Click the "Allow" button above to enable your microphone.
-            </p>
+            <p id="info_allow" style="display:none"> Click the "Allow" button above to enable your microphone. </p>
 
-            <p id="info_denied" style="display:none">
-                Permission to use microphone was denied.
-            </p>
+            <p id="info_denied" style="display:none"> Permission to use microphone was denied. </p>
 
             <p id="info_blocked" style="display:none">
                 Permission to use microphone is blocked. To change, go to
                 chrome://settings/contentExceptions#media-stream
             </p>
 
-            <p id="info_upgrade" style="display:none">
-                Web Speech API is not supported by this browser. Upgrade to <a href=
-                                                                                       "//www.google.com/chrome">Chrome</a> version 25 or later.
-            </p>
+            <p id="info_upgrade" style="display:none"> Web Speech API is not supported by this browser. Upgrade to <a href= "//www.google.com/chrome">Chrome</a> version 25 or later. </p>
 
         </div>
 
         <div id="div_start">
-            <button id="start_button" onclick="startButton(event)"><img alt="Start" id="start_img"
-                src="Images/Microphone_1.gif"></button>
+            <button id="start_button" onclick="startButton(event)"><img alt="Start" id="start_img" src="Images/Microphone_1.gif"></button>
         </div>
 
         <div id="results">
-            <span class="final" id="final_span"></span> <span class="interim" id=
-                "interim_span"></span>
+            <span class="final" id="final_span"></span> <span class="interim" id= "interim_span"></span>
         </div>
+
         <div id="copy">
-            <button class="button" id="copy_button" onclick="copyButton()">Copy and Paste</button>
+
+            <button class="button" id="copy_button" onclick="copyButton()">Copy to Clipboard</button>
+
+            <button class="button" id="copy-button" data-clipboard-text="Copy Me!" title="Click to copy me.">Copy Mojo to Clipboard</button>
+            <script src="Scripts/ZeroClipboard/dist/ZeroClipboard.js"></script>
+
             <div id="copy_info">
-                <p>
-                    Press Control-C to copy text.
-                </p>
-                <p>
-                    (Command-C on Mac.)
-                </p>
-            </div><button class="button" id="email_button" onclick="emailButton()">Create
-            Email</button>
-            <div id="email_info">
-                <p>
-                    Text sent to default email application.
-                </p>
-                <p>
-                    (See chrome://settings/handlers to change.)
-                </p>
+                 Text copied to Clipboard.
             </div>
+
+
+
+
+
+
+
         </div>
+
+        <br>
+
         <div class="compact marquee" id="div_language">
             <select id="select_language" onchange="updateCountry()">
-            </select>&nbsp;&nbsp; <select id="select_dialect">
-        </select>
+            </select>
+            &nbsp;&nbsp;
+            <select id="select_dialect">
+            </select>
         </div>
+
     </div>
+
 </div>
 
 
-<!-- Haui -->
-<!-- <script src="/intl/en/chrome/assets/common/js/chrome.min.js">
-
-</script>
-
-
-<script>
-    var chrmMenuBar = new chrm.ui.MenuBar();
-    chrmMenuBar.decorate('nav');
-    var chrmLogo = new chrm.ui.Logo('logo');
-
-    var chrmscroll = new chrm.ui.SmoothScroll('scroll');
-    chrmscroll.init();
-
-    window.___gcfg = { lang: 'en' };
-    (function() {
-        var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-        po.src = 'https://apis.google.com/js/plusone.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-    })();
-
-
-
-
-    var doubleTracker = new gweb.analytics.DoubleTrack('floodlight', {
-        src: 2542116,
-        type: 'clien612',
-        cat: 'chrom0'
-    });
-    doubleTracker.track();
-
-    doubleTracker.trackClass('doubletrack', true);
-</script>
--->
 
 
 <script src="Scripts/main.js"></script>

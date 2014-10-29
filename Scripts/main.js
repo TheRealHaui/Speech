@@ -37,14 +37,14 @@ function updateCountry() {
 }
 -->
 
-var create_email = false;
+
 var final_transcript = '';
 var recognizing = false;
 var ignore_onend;
 var start_timestamp;
 
 if (!('webkitSpeechRecognition' in window)) {
-    upgrade();
+    doUpgrade();
 } else {
     start_button.style.display = 'inline-block';
     var recognition = new webkitSpeechRecognition();
@@ -52,6 +52,9 @@ if (!('webkitSpeechRecognition' in window)) {
     recognition.interimResults = true;
 
     recognition.onstart = function() {
+
+        copy_button.style.display = 'none';
+
         recognizing = true;
         showInfo('info_speak_now');
         start_img.src = 'Images/Microphone_2.png';
@@ -95,10 +98,9 @@ if (!('webkitSpeechRecognition' in window)) {
             range.selectNode(document.getElementById('final_span'));
             window.getSelection().addRange(range);
         }
-        if (create_email) {
-            create_email = false;
-            createEmail();
-        }
+
+        showInfo('info_start');
+
     };
 
     recognition.onresult = function(event) {
@@ -106,7 +108,7 @@ if (!('webkitSpeechRecognition' in window)) {
         if (typeof(event.results) == 'undefined') {
             recognition.onend = null;
             recognition.stop();
-            upgrade();
+            doUpgrade();
             return;
         }
         for (var i = event.resultIndex; i < event.results.length; ++i) {
@@ -122,10 +124,11 @@ if (!('webkitSpeechRecognition' in window)) {
         if (final_transcript || interim_transcript) {
             showButtons('inline-block');
         }
+
     };
 }
 
-function upgrade() {
+function doUpgrade() {
     start_button.style.visibility = 'hidden';
     showInfo('info_upgrade');
 }
@@ -141,44 +144,14 @@ function linebreak(s) {
         return s.replace(first_char, function(m) { return m.toUpperCase(); });
         }
 
-    function createEmail() {
-        var n = final_transcript.indexOf('\n');
-        if (n < 0 || n >= 80) {
-        n = 40 + final_transcript.substring(40).indexOf(' ');
-        }
-        var subject = encodeURI(final_transcript.substring(0, n));
-        var body = encodeURI(final_transcript.substring(n + 1));
-        window.location.href = 'mailto:?subject=' + subject + '&body=' + body;
-        }
-
-    function copyButton() {
-        if (recognizing) {
-        recognizing = false;
-        recognition.stop();
-        }
-        copy_button.style.display = 'none';
-        copy_info.style.display = 'inline-block';
-        showInfo('');
-        }
-
-    function emailButton() {
-        if (recognizing) {
-        create_email = true;
-        recognizing = false;
-        recognition.stop();
-        } else {
-        createEmail();
-        }
-        email_button.style.display = 'none';
-        email_info.style.display = 'inline-block';
-        showInfo('');
-        }
 
     function startButton(event) {
+
         if (recognizing) {
         recognition.stop();
         return;
         }
+
         final_transcript = '';
         recognition.lang = select_dialect.value;
         recognition.start();
@@ -213,8 +186,35 @@ function linebreak(s) {
         }
         currStyle = style;
         copy_button.style.display = style;
-        email_button.style.display = style;
         copy_info.style.display = 'none';
-        email_info.style.display = 'none';
         }
 
+
+
+function copyButton() {
+
+    if (recognizing) {
+        recognizing = false;
+        recognition.stop();
+    }
+    //copy_button.style.display = 'none';
+    copy_info.style.display = 'inline-block';
+
+}
+
+
+
+
+// main.js
+var client = new ZeroClipboard( document.getElementById("copy-button") );
+
+client.on( "ready", function( readyEvent ) {
+    // alert( "ZeroClipboard SWF is ready!" );
+
+    client.on( "aftercopy", function( event ) {
+        // `this` === `client`
+        // `event.target` === the element that was clicked
+        event.target.style.display = "none";
+        alert("Copied text to clipboard: " + event.data["text/plain"] );
+    } );
+} );
