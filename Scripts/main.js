@@ -186,43 +186,35 @@ function linebreak(s) {
 
 
 
-function copyButton() {
-
-
-    var client2 = new ZeroClipboard( document.getElementById("copy-button") );
-
-    client2.on( "copy", function (event) {
-        var clipboard = event.clipboardData;
-        clipboard.setData( "text/plain", "Copy me!" );
-        clipboard.setData( "text/html", "<b>Copy me!</b>" );
-        clipboard.setData( "application/rtf", "{\\rtf1\\ansi\n{\\b Copy me!}}" );
-    });
-
-    alert("Dojo" );
-
-
-    if (recognizing) {
-        recognizing = false;
-        recognition.stop();
-    }
-    //copy_button.style.display = 'none';
-    copy_info.style.display = 'inline-block';
-
+function getSpeechResultAsString(){
+    return document.getElementById('final_span').innerHTML.valueOf();
 }
 
 
 
 
-// main.js
-var client = new ZeroClipboard( document.getElementById("copy-button") );
+var client = new ZeroClipboard( document.getElementById("copy_button") );
+
 
 client.on( "ready", function( readyEvent ) {
-    // alert( "ZeroClipboard SWF is ready!" );
+
+    client.on( "copy", function (event) {
+        var clipboard = event.clipboardData;
+
+        clipboard.setData( "text/plain", getSpeechResultAsString() );
+    });
 
     client.on( "aftercopy", function( event ) {
-        // `this` === `client`
-        // `event.target` === the element that was clicked
+
         event.target.style.display = "none";
         alert("Copied text to clipboard: " + event.data["text/plain"] );
+
+        if (recognizing) {
+            recognizing = false;
+            recognition.stop();
+        }
+        //copy_button.style.display = 'none';
+        copy_info.style.display = 'inline-block';
+
     } );
 } );
