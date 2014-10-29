@@ -41,6 +41,7 @@ var start_timestamp;
 if (!('webkitSpeechRecognition' in window)) {
     doUpgrade();
 } else {
+
     start_button.style.display = 'inline-block';
     var recognition = new webkitSpeechRecognition();
     recognition.continuous = true;
@@ -48,7 +49,7 @@ if (!('webkitSpeechRecognition' in window)) {
 
     recognition.onstart = function() {
 
-        copy_button.style.display = 'none';
+        //copy_button.style.display = 'none';
 
         recognizing = true;
         showInfo('info_speak_now');
@@ -155,7 +156,8 @@ function linebreak(s) {
         interim_span.innerHTML = '';
         start_img.src = 'Images/Microphone_2.png';
         showInfo('info_allow');
-        showButtons('none');
+        //showButtons('none');
+        copy_info.style.display = 'none';
         start_timestamp = event.timeStamp;
         }
 
@@ -199,15 +201,19 @@ var client = new ZeroClipboard( document.getElementById("copy_button") );
 client.on( "ready", function( readyEvent ) {
 
     client.on( "copy", function (event) {
+
+        if ( getSpeechResultAsString() == "" ){
+            alert(1);
+            return;
+        }
+
+
         var clipboard = event.clipboardData;
 
         clipboard.setData( "text/plain", getSpeechResultAsString() );
-    });
 
-    client.on( "aftercopy", function( event ) {
-
-        event.target.style.display = "none";
-        alert("Copied text to clipboard: " + event.data["text/plain"] );
+        //event.target.style.display = "none";
+        //alert("Copied text to clipboard: " + event.data["text/plain"] );
 
         if (recognizing) {
             recognizing = false;
@@ -216,5 +222,8 @@ client.on( "ready", function( readyEvent ) {
         //copy_button.style.display = 'none';
         copy_info.style.display = 'inline-block';
 
-    } );
+
+    });
+
+
 } );
