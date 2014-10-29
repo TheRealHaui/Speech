@@ -7,11 +7,7 @@ var langs =
 ['Deutsch',         ['de-DE']],
 ['English',  ['en-US']]];
 
-/**
-for (var i = 0; i < langs.length; i++) {
-    select_language.options[i] = new Option(langs[i][0], i);
-    }
-**/
+
 
 select_language.options[0] = new Option('Deutsch', 0);
 select_language.options[1] = new Option('English', 1);
@@ -23,8 +19,7 @@ updateCountry();
 //select_dialect.selectedIndex = 6;
 showInfo('info_start');
 
-<!-- Haui -->
-<!--
+//Haui
 function updateCountry() {
     for (var i = select_dialect.options.length - 1; i >= 0; i--) {
         select_dialect.remove(i);
@@ -35,7 +30,7 @@ function updateCountry() {
     }
     select_dialect.style.visibility = list[1].length == 1 ? 'hidden' : 'visible';
 }
--->
+
 
 
 var final_transcript = '';
@@ -192,6 +187,19 @@ function linebreak(s) {
 
 
 function copyButton() {
+
+
+    var client2 = new ZeroClipboard( document.getElementById("copy-button") );
+
+    client2.on( "copy", function (event) {
+        var clipboard = event.clipboardData;
+        clipboard.setData( "text/plain", "Copy me!" );
+        clipboard.setData( "text/html", "<b>Copy me!</b>" );
+        clipboard.setData( "application/rtf", "{\\rtf1\\ansi\n{\\b Copy me!}}" );
+    });
+
+    alert("Dojo" );
+
 
     if (recognizing) {
         recognizing = false;

@@ -22,9 +22,11 @@
     <!--
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;subset=latin" rel=
             "stylesheet">
-
-    <link href="http://www.google.com/intl/en/chrome/assets/common/css/chrome.min.css" rel="stylesheet">
     -->
+
+    <!-- Haui -->
+    <!-- <link href="http://www.google.com/intl/en/chrome/assets/common/css/chrome.min.css" rel="stylesheet"> -->
+
 
 
     <style>
@@ -99,7 +101,7 @@
         <div class="marquee-copy">
 
             <h1>
-                Web Speech API Demonstration referring <a class="c1" href="http://dvcs.w3.org/hg/speech-api/raw-file/tip/speechapi.html"> Haui </a>
+                Web Speech API Demonstration referring the <a class="c1" href="http://dvcs.w3.org/hg/speech-api/raw-file/tip/speechapi.html">W3C Web Speech API Specification</a>
             </h1>
 
         </div>
@@ -143,10 +145,10 @@
 
         <div id="copy">
 
+
             <button class="button" id="copy_button" onclick="copyButton()">Copy to Clipboard</button>
 
-            <button class="button" id="copy-button" data-clipboard-text="Copy Me!" title="Click to copy me.">Copy Mojo to Clipboard</button>
-            <script src="Scripts/ZeroClipboard/dist/ZeroClipboard.js"></script>
+
 
             <div id="copy_info">
                  Text copied to Clipboard.
@@ -160,12 +162,20 @@
 
         </div>
 
+
+        <script src="Scripts/ZeroClipboard/dist/ZeroClipboard.js"></script>
+        <button id="copy-button" data-clipboard-text="Copy Me!" title="Click to copy me.">Copy Mojo to Clipboard</button>
+
+
+
+
         <br>
 
         <div class="compact marquee" id="div_language">
             <select id="select_language" onchange="updateCountry()">
             </select>
             &nbsp;&nbsp;
+            <!-- Haui -->
             <select id="select_dialect">
             </select>
         </div>
