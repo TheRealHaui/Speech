@@ -202,8 +202,9 @@ client.on( "ready", function( readyEvent ) {
 
     client.on( "copy", function (event) {
 
-        if ( getSpeechResultAsString() == "" ){
-            return;
+        if (recognizing) {
+            recognizing = false;
+            recognition.stop();
         }
 
 
@@ -214,11 +215,12 @@ client.on( "ready", function( readyEvent ) {
         //event.target.style.display = "none";
         //alert("Copied text to clipboard: " + event.data["text/plain"] );
 
-        if (recognizing) {
-            recognizing = false;
-            recognition.stop();
-        }
         //copy_button.style.display = 'none';
+
+        if ( getSpeechResultAsString() == "" ){
+            return;
+        }
+
         copy_info.style.display = 'inline-block';
 
 
