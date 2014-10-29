@@ -18,6 +18,7 @@
     border: 0;
     background-color:transparent;
     padding: 0;
+    display: inline-block;
 }
 .interim {
     color: gray;
@@ -37,20 +38,21 @@
     margin: 10px 0;
     position: relative;
     top: -50px;
+    display: inline;
 }
 #div_start {
 
     margin-top: 20px;
+    display: inline-block;
 }
 #copy {
 
-    display: inline;
+    display: inline-block;
 }
 
 #copy > div {
-    display: none;
     margin: 0 70px;
-    display: inline;
+    display: inline-block;
 }
 
 
