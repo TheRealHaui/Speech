@@ -53,7 +53,7 @@
                 Web Speech API Demonstration referring the <a class="c1" href="http://dvcs.w3.org/hg/speech-api/raw-file/tip/speechapi.html">W3C Web Speech API Specification</a>
                 <br>
                 <br>
-                Speech recognition
+                Speech synthesis
             </h1>
 
         </div>
@@ -76,12 +76,12 @@
     <div class="compact marquee">
         <div id="info">
 
-            <p id="info_start"> Click on the microphone and start speaking. </p>
+            <p id="info_start"> Click on the speaker icon. </p>
 
             <p id="info_speak_now" style="display:none"> Speak now. </p>
 
             <!-- Haui -->
-            <p id="info_no_speech" style="display:none"> No speech was detected. You may need to adjust your <a href= "//support.google.com/chrome/bin/answer.py?hl=en&amp;answer=1407892">microphone settings</a>. </p>
+            <p id="info_no_text" style="display:none"> You have to provide a text that has to be spoken. </p>
 
             <p id="info_no_microphone" style="display:none"> No microphone found. Ensure that a microphone is installed and configured correctly. </p>
 
@@ -100,28 +100,17 @@
 
 
 
-        <div id="results">
-            <span class="final" id="final_span"></span> <span class="interim" id= "interim_span"></span>
-        </div>
+
+            <!-- <span class="final" id="final_span"><input style="width: 100%;height: 100%" type="text"></span> -->
+            <!-- <input id="results" type="text"> -->
+            <!-- <span class="interim" id= "interim_span"></span> -->
+            <textarea id="results" style="width: 98.6%;height: 100%" rows="8"></textarea>
+
 
 
         <div id="div_start">
 
             <button id="start_button" onclick="startButton(event)"><img alt="Start" id="start_img" src="Images/Microphone_1.gif"></button>
-
-
-            <div id="copy">
-
-
-                <button  id="copy_button" data-clipboard-text="Copy Me!">Copy to Clipboard</button>
-
-
-                <div style="display: none" id="copy_info">
-                    Text copied to Clipboard.
-                </div>
-
-
-            </div>
 
 
         </div>
@@ -138,8 +127,6 @@
 </div>
 
 
-
-<script src="Scripts/ZeroClipboard/dist/ZeroClipboard.js"></script>
 
 <script src="Scripts/main.js"></script>
 
