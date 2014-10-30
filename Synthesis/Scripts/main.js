@@ -97,6 +97,9 @@ function startButton(event) {
     }
 
 
+
+
+
     start_img.src = 'Images/Microphone_2.gif';
 
 
@@ -109,6 +112,7 @@ function startButton(event) {
     msg.rate = 1; // 0.1 to 10
     msg.pitch = 2; //0 to 2
     msg.text = getWhatToSayAsString();
+
 
 
     var strUser = document.getElementById("select_language").options[document.getElementById("select_language").selectedIndex].text;
