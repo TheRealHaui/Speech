@@ -72,8 +72,10 @@ function showInfo(s) {
 }
 
 
-function clearValue(element) {
-    element.value = "";
+function highlightAllText(element) {
+    element.preventDefault;
+    document.getElementById(element.id).focus();
+    document.getElementById(element.id).select();
 }
 
 
@@ -107,7 +109,16 @@ function startButton(event) {
     msg.rate = 1; // 0.1 to 10
     msg.pitch = 2; //0 to 2
     msg.text = getWhatToSayAsString();
-    msg.lang = 'en-US';
+
+
+    var strUser = document.getElementById("select_language").options[document.getElementById("select_language").selectedIndex].text;
+
+    if ( strUser == 'Deutsch' ){
+        msg.lang = 'de-at';
+    }
+    else{
+        msg.lang = 'en-US';
+    }
 
 
 
