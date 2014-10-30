@@ -1,43 +1,6 @@
 /**
  * Created by haui on 29.10.14.
  */
-/*
- if (annyang) {
-
- var commands = {
- // annyang will capture anything after a splat (*) and pass it to the function.
- // e.g. saying "Show me Batman and Robin" is the same as calling showFlickr('Batman and Robin');
- 'show me *term': showFlickr,
-
- // A named variable is a one word variable, that can fit anywhere in your command.
- // e.g. saying "calculate October stats" will call calculateStats('October');
- 'calculate :month stats': calculateStats,
-
- // By defining a part of the following command as optional, annyang will respond to both:
- // "say hello to my little friend" as well as "say hello friend"
- 'say hello (to my little) friend': greeting
- };
-
- var showFlickr = function (term) {
- alert(1);
- var url = 'http://api.flickr.com/services/rest/?tags=' + tag;
- $.getJSON(url);
- }
-
- var calculateStats = function (month) {
- $('#stats').text('Statistics for ' + month);
- }
-
- var greeting = function () {
- $('#greeting').text('Hello!');
- }
-
- annyang.addCommands(commands);
-
- annyang.start();
-
- }
- */
 
 
 if (annyang) {
@@ -82,8 +45,31 @@ if (annyang) {
 
     var searchGoogle = function (term) {
 
+        var msg = new SpeechSynthesisUtterance();
+
+        var voices = window.speechSynthesis.getVoices();
+        msg.voice = voices[10]; // Note: some voices don't support altering params
+        msg.voiceURI = 'native';
+        msg.volume = 1; // 0 to 1
+        msg.rate = 10; // 0.1 to 10
+        msg.pitch = 2; //0 to 2
+        msg.text = 'Yes, Sir! Searching for ' + term;
+
+
+        msg.lang = 'en-AUS';
+
+
+        msg.onend = function (e) {
+        }
+
+        window.speechSynthesis.speak(msg);
+
+
         document.getElementById("googleId").innerHTML = document.getElementById("googleId").innerHTML
-            + '<br/><i><b><font color="blue">' + 'Mojo' + '</b></font></i>';
+            + '<br/><i><b><font color="blue">' + 'Searching for ' + '<a href="' + 'https://www.google.at/?gws_rd=ssl#newwindow=1&safe=off&q=' + term + '" target="_blank">' + term + '</a> </b></font></i>';
+
+        var win = window.open('https://www.google.at/?gws_rd=ssl#newwindow=1&safe=off&q=' + term, '_blank');
+        win.focus();
 
     }
 
