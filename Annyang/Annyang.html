@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html class="no-js consumer" lang="en">
+<head>
+
+    <!-- Haui -->
+    <!--
+    <script>
+        (function(e, p){
+            var m = location.href.match(/platform=(win8|win|mac|linux|cros)/);
+            e.id = (m && m[1]) ||
+                    (p.indexOf('Windows NT 6.2') > -1 ? 'win8' : p.indexOf('Windows') > -1 ? 'win' : p.indexOf('Mac') > -1 ? 'mac' : p.indexOf('CrOS') > -1 ? 'cros' : 'linux');
+            e.className = e.className.replace(/\bno-js\b/,'js');
+        })(document.documentElement, window.navigator.userAgent)
+    </script>
+    -->
+
+    <meta charset="utf-8">
+    <meta content="initial-scale=1, minimum-scale=1, width=device-width" name="viewport">
+
+    <title> Speech recognition API test site </title>
+
+
+    <!-- Haui -->
+    <!--
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;subset=latin" rel=
+            "stylesheet">
+    -->
+
+    <!-- Haui -->
+    <!-- <link href="http://www.google.com/intl/en/chrome/assets/common/css/chrome.min.css" rel="stylesheet"> -->
+
+    <link href="CSS/style.css" rel="stylesheet">
+
+
+</head>
+
+
+<body class="" id="grid">
+
+<br>
+
+<div class="browser-landing" id="main">
+
+    <div class="compact marquee-stacked" id="marquee">
+
+        <div class="marquee-copy">
+
+            <h1>
+                Web Speech API Demonstration referring the <a class="c1"
+                                                              href="http://dvcs.w3.org/hg/speech-api/raw-file/tip/speechapi.html">W3C
+                Web Speech API Specification</a>
+                <br>
+                <br>
+                Third pary library Annyang for defining commands
+            </h1>
+
+        </div>
+
+
+        <div id="div_language">
+
+            <br/>
+
+            <p>
+
+            <p>&nbsp;</p>
+
+            <p>Say &quot;<strong>Hello</strong>&quot;.<br/>
+
+            <div id="helloId">
+            <br>
+            </div>
+
+            <br/>
+            <br/>
+
+            <p>Say &quot;<strong>What&#39;s the time</strong>&quot; to get the current time.<br/>
+                Does not work always.
+            <div id="timeId">
+                <br>
+            </div>
+                <br/>
+                <br/>
+                <br/>
+                Search for something with Google saying &quot;<strong>Search</strong>&quot; and your keyword.<br/>
+                You can also say &quot;<strong>Search for</strong>&quot;.</p>
+            <div id="googleId">
+            </div>
+
+        </div>
+
+
+    </div>
+
+    <br>
+
+
+</div>
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/annyang/1.4.0/annyang.min.js"></script>
+<script src="Scripts/main.js"></script>
+
+
+</body>
+</html>
