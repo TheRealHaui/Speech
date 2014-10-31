@@ -212,11 +212,6 @@ client.on( "ready", function( readyEvent ) {
 
         clipboard.setData( "text/plain", getSpeechResultAsString() );
 
-        //event.target.style.display = "none";
-        //alert("Copied text to clipboard: " + event.data["text/plain"] );
-
-        //copy_button.style.display = 'none';
-
         if ( getSpeechResultAsString() == "" ){
             return;
         }
