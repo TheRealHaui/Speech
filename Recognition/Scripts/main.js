@@ -15,11 +15,10 @@ select_language.options[1] = new Option('English', 1);
 select_language.selectedIndex = 1;
 updateCountry();
 
-//Haui
-//select_dialect.selectedIndex = 6;
+
 showInfo('info_start');
 
-//Haui
+
 function updateCountry() {
     for (var i = select_dialect.options.length - 1; i >= 0; i--) {
         select_dialect.remove(i);
